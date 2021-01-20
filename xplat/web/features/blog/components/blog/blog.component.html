@@ -1,0 +1,32 @@
+
+  <div class="flex-row container-fluid m-t-10">
+  <nav class="navbar navbar-expand-lg navbar-light w-100">
+    <button class="navbar-toggler"  type="button" burger >X</button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mb-lg-0 me-auto mb-2 ">
+        <li class="nav-item" *ngFor="let category of categories">
+          <a class="nav-link btn text-light btn-info m-x-5" (click)="filterCategory(category)">{{category |titlecase}}</a>
+        </li>
+
+      </ul>
+    </div>
+  </nav>
+</div>
+<!-- <div class="d-inline-flex flex-row">
+
+  <button class="btn" burger>></button>
+  <div class=" col d-flex" >
+      <div class="collapse" id="navbarSupportedContent">
+    l;dsak;sadldksl;dsakds;lk
+    </div>
+  </div>
+  <div class="d-inline-flex col">
+    kjslksajdlksajdsalk
+  </div>
+</div> -->
+
+ <router-outlet></router-outlet>
+
+
+
+

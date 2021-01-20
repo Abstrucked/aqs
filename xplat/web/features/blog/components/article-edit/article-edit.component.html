@@ -1,0 +1,124 @@
+<div class="container-fluid">
+  <div class="title">{{editMode ? 'Edit Article' : 'Add a new Article'}}</div>
+  <div class="container-lg form-group">
+    <button class="btn btn-success" (click)="onSaveArticle()" [disabled]="!articleEditForm.valid">Save</button>
+    <button class="btn btn-info m-x-10" (click)="onClear()">Clear</button>
+    <button class="btn btn-danger" (click)="onCancel()">Cancel</button>
+  </div>
+  <div class="row">
+    <div class="col col-lg-5">
+      <form class="" [formGroup]="articleEditForm">
+        <div class="form-group container-fluid container-lg">
+          <label for="">Cover Image</label>
+          <div class="d-flex align-self-center">
+            <input
+              class="form-control col-lg-8"
+              type="text"
+              formControlName="coverImg"
+              #coverImg>
+              <div class="custom-file d-flex col" >
+                <input
+                  type="file" class="custom-file-input"
+                  id="customInput"
+                  (change)="uploadFile($event)"
+                  required [disabled]="!articleEditForm.valid">
+                <label class="custom-file-label" for="customInput">{{ uploadPercent ? (uploadPercent | async | percent) : 'Choose a file...'}} </label>
+            </div>
+            </div>
+          <!-- <div class="d-flex col  bg-success text-light">
+            <input class="col-11 text-light"  [disabled]="!articleEditForm.valid" type="file" (change)="uploadFile($event)" />
+            <div class="col-1 d-flex justify-content-end text-light">{{ uploadPercent | async | percent}}</div>
+          </div> -->
+          <div class="col-1 d-flex justify-content-end text-light"></div>
+        </div>
+        <div class="form-group container-lg">
+          <label for="">Title</label>
+          <input
+            class="form-control"
+            type="text"
+            formControlName="title"
+            #title
+            >
+        </div>
+        <div class="form-group container-lg">
+          <label for="">Description</label>
+          <input
+            class="form-control"
+            type="text"
+            formControlName="description"
+            #description
+          >
+        </div>
+        <div class="container-lg form-group">
+          <label for="">Category</label>
+          <select
+            class="form-select form-control form-select-sm"
+            aria-label=".form-select-sm example"
+            formControlName="category"
+            #category
+            >
+            <option >{{editMode ? article.category : 'Select a Category'}}</option>
+            <option *ngFor="let catNames of categories">{{catNames}}</option>
+          </select>
+        </div>
+        <div class="container-lg form-group " formArrayName="body">
+          <label>Article Body [HTML]</label>
+         <div class="row m-b-10">
+          <div class="col-1">
+            <button
+            class="btn btn-success "
+            style="font-family: monospace; text-align: center;"
+            (click)="addBodyDOM()"
+            >+</button>
+          </div>
+         </div>
+          <div
+            class="row container-lg container-fluid"
+            *ngFor="let bodyDOMCtrl of bodyDOMsFormArray.controls.reverse(); let i=index"
+            [formGroupName]="i">
+            <!-- <label>New DOM</label> -->
+            <textarea
+              class="form-control col-10 m-x-5"
+              id="" cols="30"
+              rows="5"
+              formControlName="bodyDOM"
+              #bodyDom>
+            </textarea>
+            <div class="d-flex align-self-center">
+              <button class="form-control btn btn-success " style="font-family: monospace;">^</button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="col col-lg-7">
+      <!-- <h1>Preview</h1> -->
+      <div class="row">
+        <div class="col">
+          <img
+          class="col-lg-12 w-100 article-detail-cover"
+          [src]="coverImg.value">
+          <div class="col col-lg-12 w-100">
+            <h1>{{title.value}}</h1>
+            {{description.value}}
+            <div class="text-muted">{{category.value}}</div>
+            <div *ngFor="let bodyDom of bodyDOMsFormArray.controls.slice().reverse(); let i=index">
+              <div [innerHTML]="bodyDom.get('bodyDOM').value">{{bodyDom.get('bodyDOM').value}}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- <div class="container-lg container-fluid">
+        <div class="col-lg-12 d-flex">
+          <div class="title">{{title.value}}</div>
+        </div>
+
+          <h5 class="col-lg-10"><i>{{description.value}}</i></h5>
+          <p class="col-lg-1  bg-info badge">{{category.value}}</p>
+          <div  class="col-lg-12 " *ngFor="let bodyDom of bodyDOMsFormArray.controls.slice().reverse(); let i=index">
+            <div [innerHTML]="bodyDom.get('bodyDOM').value">{{bodyDom.get('bodyDOM').value}}</div>
+          </div>
+      </div> -->
+    </div>
+  </div>
+</div>

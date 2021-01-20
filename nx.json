@@ -22,5 +22,22 @@
       }
     }
   },
-  "projects": {}
+  "projects": {
+    "libs": {
+      "tags": []
+    },
+    "xplat": {
+      "tags": []
+    },
+    "nativescript-mxh": {
+      "tags": []
+    },
+    "web-mxh": {
+      "tags": []
+    },
+    "web-mxh-e2e": {
+      "tags": [],
+      "implicitDependencies": ["web-mxh"]
+    }
+  }
 }

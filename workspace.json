@@ -1,8 +1,249 @@
 {
-  "version": 2,
-
-  "projects": {},
+  "version": 1,
+  "projects": {
+    "libs": {
+      "root": "libs",
+      "sourceRoot": "libs",
+      "projectType": "library",
+      "prefix": "pkl",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "testing/jest.libs.config.js",
+            "tsConfig": "testing/tsconfig.libs.spec.json",
+            "passWithNoTests": true,
+            "setupFile": "testing/test-setup.ts"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "testing/tsconfig.libs.json",
+              "testing/tsconfig.libs.spec.json"
+            ],
+            "exclude": ["**/node_modules/**"]
+          }
+        }
+      }
+    },
+    "xplat": {
+      "root": "xplat",
+      "sourceRoot": "xplat",
+      "projectType": "library",
+      "prefix": "pkl",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "testing/jest.xplat.config.js",
+            "tsConfig": "testing/tsconfig.xplat.spec.json",
+            "passWithNoTests": true,
+            "setupFile": "testing/test-setup.ts"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "testing/tsconfig.xplat.json",
+              "testing/tsconfig.xplat.spec.json"
+            ],
+            "exclude": ["**/node_modules/**"]
+          }
+        }
+      }
+    },
+    "nativescript-mxh": {
+      "root": "apps/nativescript-mxh/",
+      "sourceRoot": "apps/nativescript-mxh/src",
+      "projectType": "application",
+      "prefix": "pkl",
+      "schematics": {
+        "@schematics/angular:component": {
+          "styleext": "scss"
+        }
+      },
+      "architect": {
+        "default": {
+          "builder": "@nrwl/workspace:run-commands",
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "libs/core/environments/environment.ts",
+                  "with": "libs/core/environments/environment.prod.ts"
+                }
+              ]
+            }
+          }
+        },
+        "ios": {
+          "builder": "@nrwl/workspace:run-commands",
+          "options": {
+            "commands": [
+              "ns debug ios --no-hmr --env.configuration={args.configuration} --env.projectName=nativescript-mxh"
+            ],
+            "cwd": "apps/nativescript-mxh",
+            "parallel": false
+          }
+        },
+        "android": {
+          "builder": "@nrwl/workspace:run-commands",
+          "options": {
+            "commands": [
+              "ns debug android --no-hmr --env.configuration={args.configuration} --env.projectName=nativescript-mxh"
+            ],
+            "cwd": "apps/nativescript-mxh",
+            "parallel": false
+          }
+        },
+        "clean": {
+          "builder": "@nrwl/workspace:run-commands",
+          "options": {
+            "commands": ["ns clean", "npm i", "npx rimraf package-lock.json"],
+            "cwd": "apps/nativescript-mxh",
+            "parallel": false
+          }
+        }
+      }
+    },
+    "web-mxh": {
+      "projectType": "application",
+      "root": "apps/web-mxh",
+      "sourceRoot": "apps/web-mxh/src",
+      "prefix": "pkl",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/apps/web-mxh",
+            "index": "apps/web-mxh/src/index.html",
+            "main": "apps/web-mxh/src/main.ts",
+            "polyfills": "apps/web-mxh/src/polyfills.ts",
+            "tsConfig": "apps/web-mxh/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "apps/web-mxh/src/favicon.ico",
+              "apps/web-mxh/src/assets"
+            ],
+            "styles": [
+              "xplat/web/scss/_index.scss",
+              "apps/web-mxh/src/styles.scss",
+              "./node_modules/bootstrap/scss/bootstrap.scss"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/web-mxh/src/environments/environment.ts",
+                  "with": "apps/web-mxh/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "web-mxh:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "web-mxh:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "web-mxh:build"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "apps/web-mxh/tsconfig.app.json",
+              "apps/web-mxh/tsconfig.spec.json",
+              "apps/web-mxh/tsconfig.editor.json"
+            ],
+            "exclude": ["**/node_modules/**", "!apps/web-mxh/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/apps/web-mxh"],
+          "options": {
+            "jestConfig": "apps/web-mxh/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "web-mxh-e2e": {
+      "root": "apps/web-mxh-e2e",
+      "sourceRoot": "apps/web-mxh-e2e/src",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/web-mxh-e2e/cypress.json",
+            "tsConfig": "apps/web-mxh-e2e/tsconfig.e2e.json",
+            "devServerTarget": "web-mxh:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "web-mxh:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": ["apps/web-mxh-e2e/tsconfig.e2e.json"],
+            "exclude": ["**/node_modules/**", "!apps/web-mxh-e2e/**/*"]
+          }
+        }
+      }
+    }
+  },
   "cli": {
-    "defaultCollection": "@nrwl/workspace"
+    "defaultCollection": "@nstudio/xplat"
+  },
+  "schematics": {
+    "@nrwl/angular:application": {
+      "unitTestRunner": "jest",
+      "e2eTestRunner": "cypress"
+    },
+    "@nrwl/angular:library": {
+      "unitTestRunner": "jest"
+    },
+    "@nrwl/angular:component": {
+      "style": "scss"
+    }
   }
 }

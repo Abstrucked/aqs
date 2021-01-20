@@ -1,0 +1,23 @@
+<div class="row">
+  <nav class="col col-sm-12 col-md-4 col-lg-2">
+    <ul class="nav flex-column">
+      <li class="nav-item">
+        <a class="nav-link" routerLink="articles" [queryParams]="{user:user.uid}">Articles</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link active" aria-current="page" routerLink="articles/new" [queryParams]="{edit:false}">Create new Blog Article</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Link</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+      </li>
+    </ul>
+  </nav>
+  <div class="col col-sm-12 col-md-4 col-lg-10">
+    <router-outlet></router-outlet>
+</div>
+</div>
+
+

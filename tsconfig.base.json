@@ -14,7 +14,14 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@mxh/*": ["libs/*"],
+      "@mxh/nativescript": ["xplat/nativescript/index.ts"],
+      "@mxh/nativescript/*": ["xplat/nativescript/*"],
+      "@mxh/web": ["xplat/web/index.ts"],
+      "@mxh/web/*": ["xplat/web/*"]
+    }
   },
-  "exclude": ["node_modules", "tmp"]
+  "exclude": ["node_modules", "tmp", "apps/nativescript-*"],
+  "includes": ["xplat/**/*.{ios,android}.ts"]
 }
