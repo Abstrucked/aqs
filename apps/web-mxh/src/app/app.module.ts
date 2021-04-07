@@ -13,6 +13,14 @@ import {AngularFireModule} from '@angular/fire'
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import {
   AngularFireStorageModule} from '@angular/fire/storage';
+// FontAwesome
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { library } from '@fortawesome/fontawesome-svg-core';
+// import { faCoffee, faFilm } from '@fortawesome/free-solid-svg-icons';
+import { fas } from '@fortawesome/free-solid-svg-icons';
+import { far } from '@fortawesome/free-regular-svg-icons';
+
+
 @NgModule({
   imports: [
     CoreModule,
@@ -21,8 +29,17 @@ import {
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFirestoreModule,
     AngularFireStorageModule,
+    // AngularFontAwesomeModule,
+    FontAwesomeModule
   ],
   declarations: [AppComponent],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule {
+
+  constructor() {
+    // library.add(faFilm, faCoffee);
+    library.add(fas, far);
+
+  }
+}

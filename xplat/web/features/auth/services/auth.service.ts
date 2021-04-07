@@ -23,10 +23,10 @@ export class AuthService {
    return new Promise<void> (
      (res, rej) => {
       this.fireAuth.signInWithEmailAndPassword(email, passw).then(
-        fireUSer => {
-          this.getKeysOnLogin(fireUSer.user.uid).pipe(tap( x => {
+        fireUser => {
+          this.getKeysOnLogin(fireUser.user.uid).pipe(tap( x => {
             this.loggedUser.next(
-              new User( fireUSer.user.uid, fireUSer.user.email, x.kind, fireUSer)
+              new User( fireUser.user.uid, fireUser.user.email, x.kind, fireUser)
             );
 
 

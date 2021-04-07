@@ -23,7 +23,9 @@
               "testing/tsconfig.libs.json",
               "testing/tsconfig.libs.spec.json"
             ],
-            "exclude": ["**/node_modules/**"]
+            "exclude": [
+              "**/node_modules/**"
+            ]
           }
         }
       }
@@ -50,7 +52,9 @@
               "testing/tsconfig.xplat.json",
               "testing/tsconfig.xplat.spec.json"
             ],
-            "exclude": ["**/node_modules/**"]
+            "exclude": [
+              "**/node_modules/**"
+            ]
           }
         }
       }
@@ -102,7 +106,11 @@
         "clean": {
           "builder": "@nrwl/workspace:run-commands",
           "options": {
-            "commands": ["ns clean", "npm i", "npx rimraf package-lock.json"],
+            "commands": [
+              "ns clean",
+              "npm i",
+              "npx rimraf package-lock.json"
+            ],
             "cwd": "apps/nativescript-mxh",
             "parallel": false
           }
@@ -190,12 +198,17 @@
               "apps/web-mxh/tsconfig.spec.json",
               "apps/web-mxh/tsconfig.editor.json"
             ],
-            "exclude": ["**/node_modules/**", "!apps/web-mxh/**/*"]
+            "exclude": [
+              "**/node_modules/**",
+              "!apps/web-mxh/**/*"
+            ]
           }
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/apps/web-mxh"],
+          "outputs": [
+            "coverage/apps/web-mxh"
+          ],
           "options": {
             "jestConfig": "apps/web-mxh/jest.config.js",
             "passWithNoTests": true
@@ -224,8 +237,13 @@
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
-            "tsConfig": ["apps/web-mxh-e2e/tsconfig.e2e.json"],
-            "exclude": ["**/node_modules/**", "!apps/web-mxh-e2e/**/*"]
+            "tsConfig": [
+              "apps/web-mxh-e2e/tsconfig.e2e.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!apps/web-mxh-e2e/**/*"
+            ]
           }
         }
       }

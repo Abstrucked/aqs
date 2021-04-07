@@ -4,12 +4,14 @@
 body {
   padding: 0;
   margin: 0;
-  background-color: $--mxh-light-gray !important;
+  background-color: $--aqs-blue !important;
 }
 
-
+p{
+  font-size: 19px;
+}
 div {
-  font-family: 'Raleway';
+  font-family: 'Dosis', sans-serif;
   color: #00334eff;
 }
 

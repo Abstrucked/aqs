@@ -1,13 +1,12 @@
 export const environment = {
   production: false,
   firebaseConfig : {
-    apiKey: "AIzaSyBeVmV7tSNIYdX7IH0mzGFBPodB1VjuiOI",
-    authDomain: "mxh-creations.firebaseapp.com",
-    databaseURL: "https://mxh-creations.firebaseio.com",
-    projectId: "mxh-creations",
-    storageBucket: "mxh-creations.appspot.com",
-    messagingSenderId: "309629092630",
-    appId: "1:309629092630:web:6bcf3e87592c5126860637",
-    measurementId: "G-DRK60EWR2T"
+    apiKey: "AIzaSyCi7Nh6G4V0EJCx-KfViYiAA2aIRVmtjFs",
+    authDomain: "aquile-in-sicurezza.firebaseapp.com",
+    projectId: "aquile-in-sicurezza",
+    storageBucket: "aquile-in-sicurezza.appspot.com",
+    messagingSenderId: "385554606459",
+    appId: "1:385554606459:web:2c5afd66c876ff8bf9b5de",
+    measurementId: "G-2DHE26ZC49"
   }
 };

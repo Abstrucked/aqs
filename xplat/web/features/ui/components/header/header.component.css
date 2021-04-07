@@ -6,3 +6,7 @@
   font-family: monospace;
   font-size: small;
 }
+
+.nav-link > i {
+  font-size: 1rem;
+}

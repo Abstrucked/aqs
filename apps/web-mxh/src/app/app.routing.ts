@@ -9,11 +9,14 @@ import { SharedModule } from './features/shared/shared.module';
 import { AngularFireAuthGuard, hasCustomClaim, redirectUnauthorizedTo, redirectLoggedInTo, canActivate, loggedIn } from '@angular/fire/auth-guard';
 import { AuthGuard } from './auth.guard';
 import { BlogArticle } from '@mxh/web/features/blog/services';
+import { ChiSiamoComponent } from './features/chi-siamo/chi-siamo.component';
+import { ProgettiComponent } from './features/progetti/progetti.component';
+import { SupportComponent } from './features/support/support.component';
 
 const routes: Routes = [
   {
     path: '',
-    redirectTo: '/home',
+    redirectTo: '/home/index',
     pathMatch: 'full',
   },
   {
@@ -27,6 +30,18 @@ const routes: Routes = [
     path: 'home',
     loadChildren: () =>
       import('./features/home/home.module').then((m) => m.HomeModule),
+  },
+  {
+    path: 'chi-siamo',
+    component: ChiSiamoComponent
+  },
+  {
+    path: 'progetti',
+    component: ProgettiComponent
+  },
+  {
+    path: 'support',
+    component: SupportComponent
   },
   {
     path: 'dash/:id',
