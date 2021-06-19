@@ -1,22 +1,24 @@
-<!--
-  <ul class="navbar flex-columns blog-article-list  bg-transparent">
-    <li class="nav-item clearfix row align-items-center" *ngFor="let article of articles">
-      <div class="col-9" [routerLink]="['article', article.id]">
-      <pkl-article [article]="article"></pkl-article>
+<div class="clearfix">
+  <ul class="card-group flex-columns blog-article-list justify-content-center">
+    <li 
+      style="max-width: 32rem;"
+      class="card    mx-3" *ngFor="let article of articles">
+      <div class="  d-flex" [routerLink]="['article', article.id]">
+      <pkl-article class="card-body p-3" [article]="article"></pkl-article>
     </div>
-    <div class="col-3">
+    <div class="d-flex">
       <button class="btn btn-success" *ngIf="userMode" routerLink="edit" [queryParams]="{edit:true, artToEdit: article.id}">Edit</button>
       <button class=" m-l-2 btn btn-danger" *ngIf="userMode" (click)="onDelete(article.id)">Delete</button>
     </div>
 
     </li>
   </ul>
- -->
- <div class="container-fluid">
-  <ul class="nav justify-content-center">
-    <li class="nav-item d-flex justify-content-center"
+</div>
+ 
+  <!-- <ul class="nav d-flex justify-content-center  clearfix">
+    <li class="nav-item d-flex justify-content-center flex-sm-row flex-lg-column"
         *ngFor="let article of articles"
-        style="box-sizing: unset !important; "
+       
     >
       <div class="col-12" [routerLink]="['article', article.id]">
         <pkl-article [article]="article"></pkl-article>
@@ -27,4 +29,4 @@
       </div>
     </li>
   </ul>
- </div>
+ -->

@@ -5,11 +5,11 @@ import { Directive, ElementRef, HostBinding, HostListener } from '@angular/core'
 })
 export class DropdownDirective {
   constructor(private domEl: ElementRef<HTMLElement>) {
-    console.log('OK!!!');
+    // console.log('OK!!!');
   }
   isOpen = false;
   @HostListener('click') talkToMe(){
-    console.log('Talking...', this.isOpen);
+    // console.log('Talking...', this.isOpen);
     this.isOpen = !this.isOpen;
     const dropMenu =this.domEl.nativeElement.querySelector('ul').classList;
 

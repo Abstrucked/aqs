@@ -23,7 +23,7 @@ export class AuthComponent extends AuthBaseComponent implements OnInit, OnDestro
     const email = authForm.controls['email'].value;
     const passw = authForm.controls['password'].value;
     authForm.reset();
-    console.log(email, passw);
+    // console.log(email, passw);
 
     switch (this.mode){
       case 0: {

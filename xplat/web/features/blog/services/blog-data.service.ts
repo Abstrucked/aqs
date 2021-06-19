@@ -36,12 +36,12 @@ export class BlogDataService implements OnInit {
 
   }
   fetchCategories(){
-    console.log('looking for categories');
+    // console.log('looking for categories');
 
     const cat = this.angularFirestore.collection('blog').doc<{cat_name: string}[]>('categories').valueChanges();
     this.categorySub = cat.pipe(take(1)).subscribe(
       categories => {
-        console.log(categories['cat_names']);
+        // console.log(categories['cat_names']);
         this.categoryList.next(categories['cat_names']);
       }
     )
@@ -71,12 +71,12 @@ export class BlogDataService implements OnInit {
           //let colls:AngularFirestoreCollectionGroup<BlogArticle[]>;
         //colls = new AngularFirestoreCollectionGroup({},this.angularFirestore)
         let coll:AngularFirestoreCollection<BlogArticle[]> =  this.angularFirestore.collection<BlogArticle[]>('blog');
-        console.log('USER: ', user);
+        // console.log('USER: ', user);
 
         let x = coll.doc('articles').collection<BlogArticle>('all', ref => ref.where('user','==',user)).valueChanges();
         x.subscribe(
           data => {
-            console.log(data);
+            // console.log(data);
             this.articleList.next(data)
 
           }
@@ -96,10 +96,10 @@ export class BlogDataService implements OnInit {
                     .valueChanges()
             x.subscribe( art => {
               if(art){
-                console.log('selecting article:', art.id);
+                // console.log('selecting article:', art.id);
                 res(art);
               }else{
-                console.log('no ART');
+                // console.log('no ART');
 
               }
             })
@@ -142,7 +142,7 @@ export class BlogDataService implements OnInit {
     this.collection =this.angularFirestore.collection<BlogArticle>('blog/articles/all');
     this.collection.doc(articleId).delete().then(
       () => {
-        console.log('Article Deleted!!');
+        // console.log('Article Deleted!!');
       }
 
     )

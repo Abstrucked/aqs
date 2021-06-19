@@ -22,12 +22,12 @@ export class BlogComponent extends BlogBaseComponent implements OnInit, OnDestro
   }
   ngOnInit() {
     this.categories = this.blogService.categoryList.value;
-    console.log(this.categories);
+    // console.log(this.categories);
 
     this.blogSub = this.blogService.clickedArticle.subscribe(
       article => {
         if(article){
-          console.log(article, 'CLICKED')
+          // console.log(article, 'CLICKED')
           this.router.navigate(['article',article.id],{relativeTo:this.route})
         }
       }

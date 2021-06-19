@@ -13,19 +13,19 @@ import { Observable, of } from 'rxjs';
 export class BlogArticleResolver implements Resolve<Promise<BlogArticle> | Observable<BlogArticle> | BlogArticle> {
   constructor(private blogDataService: BlogDataService) { }
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Promise<BlogArticle> | Observable<BlogArticle> | BlogArticle {
-    console.log('into resolve single article');
+    // console.log('into resolve single article');
     if(this.blogDataService.clickedArticle.value !== null){
       return this.blogDataService.clickedArticle.value
     }else{
       this.blogDataService.fetchArticleById(route.queryParams.id).then(
         article => {
-          console.log('fetchjing.......');
+          // console.log('fetchjing.......');
 
           return article
         }
       ).catch(
         err => {
-          console.log(err);
+          // console.log(err);
 
         }
       )

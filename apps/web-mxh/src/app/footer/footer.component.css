@@ -1,0 +1,9 @@
+footer{
+  position: relative;
+  bottom:0;
+
+}
+footer ul {
+  text-decoration: none;
+  list-style: none;
+}

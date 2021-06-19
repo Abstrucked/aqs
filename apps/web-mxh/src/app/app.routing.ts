@@ -12,6 +12,7 @@ import { BlogArticle } from '@mxh/web/features/blog/services';
 import { ChiSiamoComponent } from './features/chi-siamo/chi-siamo.component';
 import { ProgettiComponent } from './features/progetti/progetti.component';
 import { SupportComponent } from './features/support/support.component';
+import { LandingPageComponent } from './features/home/components/landing-page/landing-page.component';
 
 const routes: Routes = [
   {
@@ -28,8 +29,9 @@ const routes: Routes = [
   },
   {
     path: 'home',
-    loadChildren: () =>
-      import('./features/home/home.module').then((m) => m.HomeModule),
+     loadChildren: () =>
+       import('./features/home/home.module').then((m) => m.HomeModule),
+    // component: LandingPageComponent
   },
   {
     path: 'chi-siamo',

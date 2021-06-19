@@ -1,7 +1,7 @@
-<nav class="navbar navbar-expand-lg border-bottom bg-white">
-  <div class="container-fluid">
+<nav class=" navbar navbar-expand-lg  border-bottom bg-white  w-100">
 
-      <a class="navbar-brand mxh-nav-brand" routerLink="/home">
+
+      <a class="navbar-brand mxh-nav-brand" routerLink="/home/index">
         <img src="assets/ais-logo2.png" alt="" width="290" >
       </a>
 
@@ -13,28 +13,28 @@
      <div class="container-fluid w-100 m-0 overflow-hidden ">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0 p-4 w-100  d-flex justify-content-lg-around">
         <li class="nav-item" routerLinkActive="mxh-active">
-          <a class="nav-link" [routerLink]="['/home']" >
-            <i class="fa fa-home " aria-hidden="true"></i>
+          <a class="nav-link" [routerLink]="['/home/index']" >
+            <!-- <i class="fa fa-home " aria-hidden="true"></i> -->
             HOME</a>
         </li>
         <li  class="nav-item" routerLinkActive="mxh-active">
           <a class="nav-link" [routerLink]="['/chi-siamo']" >
-            <i class="fa fa-info" aria-hidden="true"></i>
+            <!-- <i class="fa fa-info" aria-hidden="true"></i> -->
             CHI SIAMO</a>
         </li>
         <li class="nav-item" routerLinkActive="mxh-active">
           <a class="nav-link" [routerLink]="['/progetti']" >
-            <i class="fa fa-puzzle-piece" aria-hidden="true"></i>
+            <!-- <i class="fa fa-puzzle-piece" aria-hidden="true"></i> -->
             PROGETTI
           </a>
         </li>
         <li  class="nav-item" routerLinkActive="mxh-active">
           <a class="nav-link" routerLink="/blog" >
-            <i class="fa fa-paperclip" aria-hidden="true"></i>
+            <!-- <i class="fa fa-paperclip" aria-hidden="true"></i> -->
             ARTICOLI
           </a>
         </li>
-        <li class="nav-item dropdown d-flex align-self-end" routerLinkActive="mxh-active" *ngIf="isAuthenticated" dropdown>
+        <li class="nav-item dropdown  align-self-end" routerLinkActive="mxh-active" *ngIf="isAuthenticated" dropdown>
           <a class="nav-link dropdown-toggle"  id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             {{user.email}}
           </a>
@@ -47,9 +47,9 @@
         </li>
         <li class="nav-item " routerLinkActive="mxh-active">
           <a
-            class="nav-link " style="cursor: pointer;" routerLink="/auth" *ngIf="!isAuthenticated">
+            class="nav-link disabled" style="cursor: pointer;" routerLink="/auth" *ngIf="!isAuthenticated">
             <!-- <i class="fa fa-user-circle" aria-hidden="true"></i> -->
-            <i class="fa fa-sign-in" aria-hidden="true"></i>
+            <!-- <i class="fa fa-sign-in" aria-hidden="true"></i> -->
             LOGIN</a>
             <!-- <i class="fa fa-spinner fa-spin fa-3x fa-fw"></i>
             <span class="sr-only">Loading...</span>
@@ -72,5 +72,5 @@
       </form> -->
      </div>
     </div>
-  </div>
 </nav>
+

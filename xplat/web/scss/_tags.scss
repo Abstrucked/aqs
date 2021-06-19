@@ -1,6 +1,7 @@
 /**
  * Element tag overrides
  */
+
 body {
   padding: 0;
   margin: 0;
@@ -8,10 +9,37 @@ body {
 }
 
 p{
-  font-size: 19px;
+
+  font-size: 20px;
+}
+h1 {
+  font-size: 30px;
+}
+h2 {
+  font-size: 28px;
+}
+h3 {
+  font-size: 26px;
+}
+h4 {
+  font-size: 24px;
+}
+h5 {
+  font-size: 22px;
+}
+h6 {
+  font-size: 20px;
 }
 div {
   font-family: 'Dosis', sans-serif;
+  font-size: 1rem;
   color: #00334eff;
 }
+.container-fluid {
+  padding:0 !important;
+  box-sizing: content-box;
+  max-width: 1800px;
+}
+
+
 

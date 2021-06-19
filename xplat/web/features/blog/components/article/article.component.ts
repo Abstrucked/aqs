@@ -7,6 +7,7 @@ import { BlogArticle, BlogDataService } from '../../services';
 @Component({
   selector: 'pkl-article',
   templateUrl: 'article.component.html',
+  styleUrls: ['./article.component.css']
 })
 export class ArticleComponent extends BaseComponent {
   @Input() article:BlogArticle;

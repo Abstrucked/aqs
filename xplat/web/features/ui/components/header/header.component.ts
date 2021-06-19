@@ -25,11 +25,11 @@ export class HeaderComponent extends HeaderBaseComponent implements OnInit, OnDe
         if(user){
           this.user= user;
 
-          console.log('USerLogged');
+          // console.log('USerLogged');
           this.isAuthenticated = true;
 
         }else{
-          console.log('AnonymusUser');
+          // console.log('AnonymusUser');
           this.isAuthenticated = false;
         }
       }
@@ -49,7 +49,7 @@ export class HeaderComponent extends HeaderBaseComponent implements OnInit, OnDe
     this.router.navigate(['auth'],{relativeTo: this.route});
   }
   logout() {
-    console.log('logging out.....');
+    // console.log('logging out.....');
     this.user = null;
     this.authService.loggedUser.next(null);
     this.router.navigate(['/home']);

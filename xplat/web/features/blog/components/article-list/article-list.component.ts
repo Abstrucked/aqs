@@ -30,7 +30,7 @@ export class ArticleListComponent extends BaseComponent implements OnInit, OnDes
     );
     this.route.queryParams.subscribe(
       params => {
-        console.log(params.user);
+        // console.log(params.user);
         this.userMode = params.user? true : false;
         this.user = params.user;
       }
@@ -43,7 +43,7 @@ export class ArticleListComponent extends BaseComponent implements OnInit, OnDes
     this.blogService.deleteArticle(id);
     this.blogService.fetchArticlesByUser(this.user).then(
       () => {
-        console.log('The updated list has been fetch!');
+        // console.log('The updated list has been fetch!');
 
       }
     )

@@ -13,18 +13,18 @@ import { Observable, of } from 'rxjs';
 export class BlogDataResolver implements Resolve<Promise<boolean>> {
   constructor(private blogDataService: BlogDataService) { }
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Promise<boolean> {
-    console.log('into resolve');
+    // console.log('into resolve');
 
     return new Promise<boolean>(
       (res,rej) => {
         this.blogDataService.fetchArticles().then(
           () => {
-            console.log('resolving....');
+            // console.log('resolving....');
             res (true);
           }
         ).catch(
           err => {
-            console.log('ERROR MXH: ******************', err);
+            // console.log('ERROR MXH: ******************', err);
             res (false)
           }
         )

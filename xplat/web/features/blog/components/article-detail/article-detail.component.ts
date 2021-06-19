@@ -9,6 +9,7 @@ import { BlogArticle, BlogDataService } from '../../services';
 @Component({
   selector: 'pkl-article-detail',
   templateUrl: 'article-detail.component.html',
+  styleUrls: ['./article-detail.component.css']
 })
 export class ArticleDetailComponent extends BaseComponent implements OnInit, OnDestroy{
   constructor(private blogService: BlogDataService, private route: ActivatedRoute) {
@@ -21,7 +22,7 @@ export class ArticleDetailComponent extends BaseComponent implements OnInit, OnD
   paramSub: Subscription;
   ngOnInit() {
    this.paramSub = this.route.params.subscribe(par => {
-      console.log (par.id);
+      // console.log (par.id);
       this.id = par.id;
     })
     this.articleSub = this.blogService.clickedArticle.subscribe(
@@ -35,7 +36,8 @@ export class ArticleDetailComponent extends BaseComponent implements OnInit, OnD
               this.article = art;
               this.blogService.clickedArticle.next(art)
             }
-          ).catch(err => { console.log('*********ERROR************', err);
+          ).catch(err => {
+              // console.log('*********ERROR************', err);
           })
         }
       }

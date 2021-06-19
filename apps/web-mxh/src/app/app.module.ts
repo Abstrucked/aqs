@@ -19,6 +19,7 @@ import { library } from '@fortawesome/fontawesome-svg-core';
 // import { faCoffee, faFilm } from '@fortawesome/free-solid-svg-icons';
 import { fas } from '@fortawesome/free-solid-svg-icons';
 import { far } from '@fortawesome/free-regular-svg-icons';
+import { FooterComponent } from './footer/footer.component';
 
 
 @NgModule({
@@ -32,7 +33,7 @@ import { far } from '@fortawesome/free-regular-svg-icons';
     // AngularFontAwesomeModule,
     FontAwesomeModule
   ],
-  declarations: [AppComponent],
+  declarations: [AppComponent, FooterComponent],
   bootstrap: [AppComponent],
 })
 export class AppModule {

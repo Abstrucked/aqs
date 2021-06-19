@@ -1,72 +1,73 @@
-<div class="container mb-2" role="main">
-  <div class="div p-4">
-    <h2 class="text-white text-center ">"... un’Associazione Culturale, Sportiva e Ricreativa."</h2>
+<div class="p-4 h-100 container-fluid ">
+  <div class="text-center text-white"><h1>"... un’Associazione Culturale, Sportiva e Ricreativa."</h1></div>
+  <div class="card-columns p-4">
+    
+    <div class="card card-link"  [routerLink]="['/blog/Laboratorio-di-Danza-e-Teatro']" >
+      <img src="assets/danza_home.png" class="card-img-top" alt="immagine di copertina progetto: Danza e Teatro Super-Abili">
+      <div class="card-body">
+        <h5 class="card-title" #cardTitle aria-label="Progetto Danza e Teatro">Progetto “Danza e Teatro super-abili”</h5>
+          <p class="card-text">Il progetto nasce per offrire alle persone “diversamente abili” e alle persone “normodotate”
+            l’opportunità per migliorare ed implementare le capacità motorie, espressive e relazionali
+            attraverso di laboratori di teatro-integrato e danza-integrata.</p>
+          <div  class="btn btn-aqs-purple">Vai all'articolo</div>
+        </div>
+    </div>
+  
+    <div class="card" src="assets/AQUILE/calcio_integrato_cover.png">
+      <img class="card-img-top" >
+      <div class="card-body card-link" [routerLink]="['/blog/Perché-Sport-Integrato']">
+        
+        <h5 class="card-title">Il Calcio Integrato</h5>
+        <p class="card-text" >Tutti ci riscopriamo portatori di abilità diverse che dobbiamo scoprire, manifestare e coltivare. Lo sport è una disciplina privilegiata per favorire questa scoperta e questa crescita. </p>
+        <button class="card-text" class="btn btn-aqs-purple">Vai all'articolo</button>
+      </div>
+    </div>
+    
+    <div class="card bg-aqs-solid-light text-center p-3">
+      <blockquote class="blockquote mb-0">
+        <p>Sport, cultura e divertimento sono esperienze inclusive per tutti coloro che, disabili e non, amano condividere e arricchire la propria esistenza con nuove opportunità.
+        </p>
+        <footer class="blockquote-footer">
+          <small>
+            Antonio Canu <cite title="Source Title">Insieme Con</cite>
+          </small>
+        </footer>
+      </blockquote>
+    </div>
+    
+    <div class="card p-3">
+      <blockquote class="blockquote mb-0 card-body">
+        <h3 class="mt-3 ">Anche tu poi tendere una mano</h3>
+        <div  class=" p-3 bg-aqs-solid-light mt-3 rounded " >
+          <p>IBAN: IT83B0306909606100000176817 - Via Roma 97, Thiesi (SS) 07047</p>
+        <p>Indica il nostro codice fiscale nella tua dichiarazione dei redditi: 92101860903</p>
+            </div><footer class="blockquote-footer">
+          <small class="text-muted">
+            Per diventare nostro associato contattaci per email o recapito telefonico. <cite title="Source Title">Ti Aspettiamo!</cite>
+          </small>
+        </footer>
+      </blockquote>
+    </div> 
+    
+    <!-- <div class="card p-3 text-right">
+      <blockquote class="blockquote mb-0">
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+        <footer class="blockquote-footer">
+          <small class="text-muted">
+            Someone famous in <cite title="Source Title">Source Title</cite>
+          </small>
+        </footer>
+      </blockquote>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Card title</h5>
+        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
+        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+      </div>
+    </div> -->
   </div>
-  <div class="row p-4 bg-white rounded">
-
-
-      <div class="col-12 mb-4">
-        <fa-icon [icon]="faCoffee"></fa-icon>
-
-        <h1 id="homeTitle">IN EVIDENZA</h1>
-       </div>
-
-
-    <div class="row p-1">
-      <div class="col  p-1" aria-label="cardTitle">
-        <div class="card" style="width: 100%;">
-          <img src="https://www.gelestatic.it/thimg/2QHZhD63ugrw4JQgfQnFnzwj1Ys=/960x540/smart/filters:format(webp)/https%3A//www.lanuovasardegna.it/image/contentid/policy%3A1.38061144%3A1575508034/image.jpg%3Ff%3Ddetail_558%26h%3D720%26w%3D1280%26%24p%24f%24h%24w%3Da952e14" class="card-img-top" alt="...">
-          <div class="card-body">
-            <h5 class="card-title" #cardTitle aria-label="1st Card">Card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <a href="#" class="btn btn-aqs-purple">Go somewhere</a>
-          </div>
-        </div>
-      </div>
-      <div class="col p-1" aria-label="cardTitle">
-        <div class="card" style="width: 100%;">
-          <img src="..." class="card-img-top" alt="...">
-          <div class="card-body">
-            <h5 class="card-title" #cardTitle aria-label="1st Card">Card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <a href="#" class="btn btn-aqs-purple">Go somewhere</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="row p-4 bg-white rounded mt-5">
-    <div class="row p-2">
-      <h1 id="homeTitle">PILLOLE D'INFORMAZIONE</h1>
-    </div>
-    <div class="row p-1">
-      <div class="col  p-1" aria-label="cardTitle">
-        <div class="card" style="width: 100%;">
-          <div class="card-body">
-            <h5 class="card-title" #cardTitle aria-label="1st Card">Risorse Utili</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <ul class="nav flex-column">
-              <li class="nav-item">
-                <button class="nav-link btn btn-aqs-blue">Legge 104</button>
-              </li>
-              <li class="nav-item  mt-2">
-                <button class="nav-link btn bg-aqs-purple">Moduli per l'autocertificazione</button>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-      <div class="col p-1" aria-label="cardTitle">
-        <div class="card" style="width: 100%;">
-          <!-- <img src="..." class="card-img-top" alt="..."> -->
-          <div class="card-body">
-            <h5 class="card-title" #cardTitle aria-label="1st Card">Nuovo Progetto in Arrivo</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <a href="#" class="btn btn-aqs-blue">Go somewhere</a>
-          </div>
-        </div>
-      </div>
-    </div>
+  <div class="px-5 rounded w-100 d-flex container  justify-content-center">
+    <img class="img-fluid" src="assets/banner2.png">    
   </div>
 </div>
-

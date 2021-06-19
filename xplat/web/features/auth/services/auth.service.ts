@@ -32,8 +32,8 @@ export class AuthService {
 
           })).subscribe(
             result => {
-              console.log('here....', result);
-              console.log(this.loggedUser.value);
+              // console.log('here....', result);
+              // console.log(this.loggedUser.value);
               res()
 
             }
@@ -46,7 +46,7 @@ export class AuthService {
   onSignup(email: string, passw: string): Observable<User> {
     this.fireAuth.createUserWithEmailAndPassword(email, passw).then(
       user => {
-        console.log('user ', user.user.uid, 'was created');
+        // console.log('user ', user.user.uid, 'was created');
         const mxhUser = new User (user.user.uid, user.user.email, 0, user);
         this.addKeysOnSignup(new UserKeys(0), mxhUser);
         this.loggedUser.next(mxhUser);

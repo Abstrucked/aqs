@@ -3,10 +3,18 @@
   color: #aaaaaa
 }
 .dropdown-item {
-  font-family: monospace;
+   font-family: 'Dosis', sans-serif;
   font-size: small;
 }
 
 .nav-link > i {
   font-size: 1rem;
 }
+
+nav {
+  box-sizing: unset !important;
+  font-family: 'Roboto', sans-serif;
+}
+/* 
+.dropdown-menu {
+} */

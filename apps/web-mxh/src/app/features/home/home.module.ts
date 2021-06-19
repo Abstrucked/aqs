@@ -1,6 +1,6 @@
 import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ArticleEditComponent, ArticleListComponent, AuthComponent, DashboardComponent } from '@mxh/web';
+// import { ArticleEditComponent, ArticleListComponent, AuthComponent, DashboardComponent } from '@mxh/web';
 
 import { SharedModule } from '../shared/shared.module';
 import { HOME_COMPONENTS, HomeComponent } from './components';

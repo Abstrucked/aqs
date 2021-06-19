@@ -5,12 +5,12 @@ import { Directive, ElementRef, HostListener } from '@angular/core';
 })
 export class BurgerDirective {
   constructor(private domEl: ElementRef<HTMLElement>) {
-    console.log('Burger OK!!!');
+    // console.log('Burger OK!!!');
 
   }
   isOpen = false;
   @HostListener('click') talk(){
-    console.log('Talking...', this.isOpen);
+    // console.log('Talking...', this.isOpen);
     this.isOpen = !this.isOpen;
     const menu = this.domEl.nativeElement.parentElement;
     const burgerMenu = menu.querySelector('#navbarSupportedContent').classList

@@ -38,14 +38,14 @@ export class ArticleEditComponent extends BaseComponent implements OnInit{
       (params: Params) => {
         this.editMode = params.artToEdit != null;
         this.artId = params.artToEdit;
-        console.log(this.editMode);
+        // console.log(this.editMode);
       }
     );
     this.formInit();
-    console.log(this.articleEditForm);
+    // console.log(this.articleEditForm);
   }
   formInit() {
-    console.log('formInit()');
+    // console.log('formInit()');
     let title = '';
     let description = '';
     let category = '';
@@ -55,12 +55,12 @@ export class ArticleEditComponent extends BaseComponent implements OnInit{
       this.blogService.articleList.value.forEach(art => {
         if(art.id === this.artId){
           this.article = art;
-          console.log('article ', art.id, ' found!');
+          // console.log('article ', art.id, ' found!');
           return
         }
       });
-      console.log('ARTICLE: -----------');
-      console.log(this.article);
+      // console.log('ARTICLE: -----------');
+      // console.log(this.article);
       title = this.article.title;
       description = this.article.description;
       img = this.article.image;
@@ -98,11 +98,11 @@ export class ArticleEditComponent extends BaseComponent implements OnInit{
     let htmlCode: string [] = [];
     for(let control of this.bodyDOMsFormArray.controls){
       htmlCode.push(control.value.bodyDOM);
-      console.log(control.value.bodyDOM);
+      // console.log(control.value.bodyDOM);
     }
     let id:string = this.articleEditForm.get('title').value;
     id = id.replace(/ /g, '-');
-    console.log(id);
+    // console.log(id);
     this.article = new BlogArticle(
       id,
       '',
@@ -114,7 +114,7 @@ export class ArticleEditComponent extends BaseComponent implements OnInit{
       this.articleEditForm.get('coverImg').value
     );
     this.blogService.updloadArticle(this.article);
-    console.log('Article save on Server');
+    // console.log('Article save on Server');
     this.router.navigate(['../'],{relativeTo:this.route})
   }
   onCancel(){
@@ -128,7 +128,7 @@ export class ArticleEditComponent extends BaseComponent implements OnInit{
   // }
   uploadFile(event) {
     const file = event.target.files[0];
-    console.log(file.name);
+    // console.log(file.name);
     const folder =  this.articleEditForm.controls['title'].value
     const filePath = 'blog/'+ folder +'/'+file.name;
     const fileRef = this.storage.ref(filePath);
